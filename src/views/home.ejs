@@ -78,9 +78,13 @@
     <span
       class="absolute h-[100px] w-[100px] bg-[#03e9f4] top-[100%] left-[80%] -z-10 blur-[100px]"
     ></span>
-    <%- include("game.ejs") %>
-    <!-- <%- include("description.ejs") %> -->
-    <!-- <%-include("info.ejs") %> -->
+
+    <!-- <div id="game-view"> -->
+
+      <%- include("description.ejs") %>
+      <%-include("info.ejs") %>
+      <%- include("game.ejs") %>
+    <!-- </div> -->
 
     <script src="/script.js"></script>
   </body>
