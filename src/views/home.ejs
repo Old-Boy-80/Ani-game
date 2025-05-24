@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ani-Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Extends Tailwind config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            boxShadow: {
+              "glow-blue": "0 0 40px rgba(59, 130, 246, 1)",
+            },
+            fontFamily: {
+              space: ['"JetBrains Mono"', '"monospace"', "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      @layer utilities {
+        @keyframes glowPulseBlue {
+          0%,
+          100% {
+            text-shadow: none;
+          }
+          50% {
+            text-shadow: 0 0 5px #3b82f6, 0 0 10px #3b82f6, 0 0 20px #3b82f6;
+          }
+        }
+
+        .animate-glow {
+          animation: glowPulseBlue 2s infinite ease-in-out;
+        }
+
+        .text-glow-blue {
+          text-shadow: 0 0 5px #3b82f6, 0 0 10px #3b82f6, 0 0 20px #3b82f6;
+        }
+
+        .bg-grid {
+          background-image: linear-gradient(
+              to right,
+              rgba(245, 245, 245, 0.1) 1px,
+              transparent 1px
+            ),
+            linear-gradient(
+              to bottom,
+              rgba(245, 245, 245, 0.1) 1px,
+              transparent 1px
+            );
+          background-size: 25px 25px;
+          z-index: -1;
+          transform: perspective(100px);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-[#0b0d13] bg-grid font-space relative">
+    <%- include("partials/header.ejs") %>
+    <span
+      class="absolute h-[100px] w-[100px] bg-[#d500ff] top-[40%] left-[20%] -z-10 blur-[100px]"
+    ></span>
+    <span
+      class="absolute h-[100px] w-[100px] bg-[#d500ff] top-[60%] left-[60%] -z-10 blur-[120px]"
+    ></span>
+    <span
+      class="absolute h-[100px] w-[100px] bg-[#03e9f4] top-[100%] left-[80%] -z-10 blur-[100px]"
+    ></span>
+    <%- include("game.ejs") %>
+    <!-- <%- include("description.ejs") %> -->
+    <!-- <%-include("info.ejs") %> -->
+
+    <script src="/script.js"></script>
+  </body>
+</html>
