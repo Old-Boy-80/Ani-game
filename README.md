@@ -30,8 +30,6 @@ Ani-Game is a web-based interactive game where players compare two randomly sele
 ## 📦 Project Structure
 
 - `src/` - Core application code
-- `tests/` - Test suites
-- `docs/` - Project documentation
 - `public/` - Static assets
 - `.gitignore` - Git ignore rules
 - `package.json` - Project metadata and dependencies
