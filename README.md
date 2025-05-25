@@ -53,9 +53,9 @@ ani-game/
    cd ani-game
    ```
 2. **Install dependencies:**
-```bash 
+   ```bash 
    npm install
-```
+   ```
 
 3. **Environment Variables:**
    ```bash
@@ -63,14 +63,14 @@ ani-game/
    PUBLIC_API_KEY=https://api.jikan.moe/v4/
    ```
 4. **Run the application:**
-```bash
+   ```bash
    npm start
-```
+   ```
 
 5. **Access in browser:**
-```
-Open your browser at http://localhost:3000
-```
+   ```
+   Open your browser at http://localhost:3000
+   ```
 
 ---
 
