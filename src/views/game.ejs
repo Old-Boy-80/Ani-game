@@ -1,73 +1,130 @@
-<section id="game" class="px-6 opacity-0 scale-0 h-0 transform transition-all duration-300 ease-in-out">
+<section
+  id="game"
+  class="px-6 opacity-0 scale-0 h-0 transform transition-all duration-300 ease-in-out"
+>
   <!-- Score card -->
-  <div class="flex-col gap flex md:flex-row justify-around gap-6 items-center mb-4 text-center">
+  <div
+    class="flex-col gap flex md:flex-row justify-around gap-6 items-center mb-4 text-center"
+  >
     <!-- round -->
-    <div class="bg-[#0a0b10] border border-gray-100/30 rounded-sm p-2 text-white h-22">
-      <h3 class="text-[#03e9f4] text:md ">round</h3>
-      <h1 class="score-round text-2xl leading-relaxed font-bold">0/10</h1>
+    <div
+      class="bg-[#0a0b10] border border-gray-100/30 rounded-sm p-2 text-white h-22"
+    >
+      <h3 class="text-[#03e9f4] text:md">round</h3>
+      <h1
+        id="levelRound"
+        class="score-round text-2xl leading-relaxed font-bold"
+      >
+        <%= level %>/10
+      </h1>
     </div>
 
     <!-- Progress Bard -->
-    <div class="progress-bar h-3 max-w-[660px] w-full bg-slate-600
-    overflow-hidden relative">
-    <span class="h-full w-[30%] bg-[#03e9f4] absolute left-0 top-0 bottom-0 right-0"></span>
-</div>
+    <div class="h-3 max-w-[660px] w-full bg-slate-600 overflow-hidden relative">
+      <span
+        id="progressBar"
+        class="h-full bg-[#03e9f4] w-0 absolute left-0 top-0 bottom-0 right-0"
+      ></span>
+    </div>
 
     <!-- Score -->
-    <div class="bg-[#0a0b10] border border-gray-100/30 rounded-sm text-center text-white h-22 p-2">
+    <div
+      class="bg-[#0a0b10] border border-gray-100/30 rounded-sm text-center text-white h-22 p-2"
+    >
       <h3 class="text-[#03e9f4] text-xl font-bold">score</h3>
-      <h1 class="score text-2xl text-[#03e9f4]">0</h1>
+      <h1 id="scoreRound" class="score text-2xl text-[#03e9f4]">
+        <%= score %>
+      </h1>
     </div>
   </div>
 
   <!-- Game -->
-   <div class="flex gap-6 justify-around items-center mt-12">
+  <div id="game-cards" class="flex gap-6 justify-around items-center mt-12">
     <!-- Card One -->
-    <div class="max-w-sm w-full bg-[#0a0b10] rounded-lg shadow-lg overflow-hidden">
-        <img class="w-full h-48 object-cover" src="https://via.placeholder.com/400x200?text=Anime+Image" alt="Anime Cover">
-        <div class="p-6">
-            <h2 class="text-2xl font-bold text-[#03e9f4] mb-2">Attack on Titan</h2>
-            <p class="text-gray-300 text-sm mb-4">
-                <span class="font-semibold">Genre:</span> Action, Drama, Fantasy<br>
-                <!-- <span class="font-semibold">Episodes:</span> 75<br> -->
-                <span class="font-semibold">Studio:</span> Wit Studio, MAPPA<br>
-                <span class="font-semibold">Release Year:</span> 2013
-            </p>
-            <div class="flex items-center mb-4">
-                <span class="text-gray-400 text-lg">Ratings: </span>
-                <span class="ml-2 text-yellow-400 text-sm">4.5/5</span>
-            </div>
-            <button class="w-full text-[#03e9f4] border border-gray-100/30 font-semibold py-2 px-4 rounded hover:bg-pink-400/30 transition duration-200">
-                Vote Now
-            </button>
+    <div
+      class="max-w-sm w-full bg-[#0a0b10] rounded-lg shadow-lg overflow-hidden"
+    >
+      <img
+        class="w-full h-48 object-contain object-center rounded-t"
+        src="<%= ResO.data.images.jpg.image_url %>"
+        alt="Anime Cover"
+      />
+      <div class="p-6">
+        <h3 class="hidden secret"><%= ResO.data.favorites %></h3>
+        <h2 class="text-2xl font-bold text-[#03e9f4] mb-2">
+          <%= ResO.data.title %>
+        </h2>
+        <p class="text-gray-300 text-sm mb-4">
+          <span class="font-semibold">Genre:</span> <%= ResO.data.genres &&
+          ResO.data.genres.length > 0 ? ResO.data.genres.map(n =>
+          n.name).join(","): '-' %> <br />
+          <!-- <span class="font-semibold">Episodes:</span> 75<br> -->
+          <span class="font-semibold">Studio:</span> <%= ResO.data.studios &&
+          ResO.data.studios.length > 0 ? ResO.data.studios.map(n =>
+          n.name).join(",") : '-' %><br />
+          <span class="font-semibold">Release Year:</span> <%= new
+          Date(ResO.data.aired.from).getFullYear() %>
+        </p>
+        <div class="flex items-center mb-4">
+          <span class="text-gray-400 text-lg">Ratings: </span>
+          <span class="ml-2 text-yellow-400 text-sm"
+            ><%= ResO.data.score ? ResO.data.score: '-' %></span
+          >
         </div>
+        <button
+          class="voter w-full text-[#03e9f4] border border-gray-100/30 font-semibold py-2 px-4 rounded hover:bg-pink-400/30 transition duration-200"
+        >
+          Vote Now
+        </button>
+      </div>
     </div>
 
     <!-- Versus -->
-     <div class="absolute">
-        <h1 class="font-extrabold text-[#03e9f4] text-4xl border-2 border-[#03e9f4] animate-glow p-4 bg-[#0a0b10]">VS</h1>
-     </div>
-
-    <!-- Card Two -->
-    <div class="max-w-sm w-full bg-[#0a0b10] rounded-lg shadow-lg overflow-hidden">
-        <img class="w-full h-48 object-cover" src="https://via.placeholder.com/400x200?text=Anime+Image" alt="Anime Cover">
-        <div class="p-6">
-            <h2 class="text-2xl font-bold text-[#03e9f4] mb-2">Attack on Titan</h2>
-            <p class="text-gray-300 text-sm mb-4">
-                <span class="font-semibold">Genre:</span> Action, Drama, Fantasy<br>
-                <!-- <span class="font-semibold">Episodes:</span> 75<br> -->
-                <span class="font-semibold">Studio:</span> Wit Studio, MAPPA<br>
-                <span class="font-semibold">Release Year:</span> 2013
-            </p>
-            <div class="flex items-center mb-4">
-                <span class="text-gray-400 text-lg">Ratings: </span>
-                <span class="ml-2 text-yellow-400 text-sm">4.5/5</span>
-            </div>
-            <button id="voter" class="w-full text-[#03e9f4] border border-gray-100/30 font-semibold py-2 px-4 rounded hover:bg-pink-400/30 transition duration-200">
-                Vote Now
-            </button>
-        </div>
+    <div class="absolute">
+      <h1
+        class="font-extrabold text-[#03e9f4] text-4xl border-2 border-[#03e9f4] animate-glow p-4 bg-[#0a0b10]"
+      >
+        VS
+      </h1>
     </div>
 
-   </div>
+    <!-- Card Two -->
+    <div
+      class="max-w-sm w-full bg-[#0a0b10] rounded-lg shadow-lg overflow-hidden"
+    >
+      <img
+        class="w-full h-48 object-contain"
+        src="<%= ResT.data.images.jpg.image_url %>"
+        alt="Anime Cover"
+      />
+      <div class="p-6">
+        <h3 class="hidden secret"><%= ResT.data.favorites %></h3>
+        <h2 class="text-2xl font-bold text-[#03e9f4] mb-2">
+          <%= ResT.data.title %>
+        </h2>
+        <p class="text-gray-300 text-sm mb-4">
+          <span class="font-semibold">Genre:</span> <%= ResT.data.genres &&
+          ResT.data.genres.length > 0 ? ResT.data.genres.map(n =>
+          n.name).join(","): '-' %> <br />
+          <!-- <span class="font-semibold">Episodes:</span> 75<br> -->
+          <span class="font-semibold">Studio:</span> <%= ResT.data.studios &&
+          ResT.data.studios.length > 0 ? ResT.data.studios.map(n =>
+          n.name).join(",") : '-' %> <br />
+          <span class="font-semibold">Release Year:</span> <%= new
+          Date(ResT.data.aired.from).getFullYear() %>
+        </p>
+        <div class="flex items-center mb-4">
+          <span class="text-gray-400 text-lg">Ratings: </span>
+          <span class="ml-2 text-yellow-400 text-sm"
+            ><%= ResT.data.score ? ResT.data.score: '-' %></span
+          >
+        </div>
+        <button
+          class="voter w-full text-[#03e9f4] border border-gray-100/30 font-semibold py-2 px-4 rounded hover:bg-pink-400/30 transition duration-200"
+        >
+          Vote Now
+        </button>
+      </div>
+    </div>
+  </div>
 </section>
