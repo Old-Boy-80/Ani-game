@@ -29,18 +29,12 @@ Ani-Game is a web-based interactive game where players compare two randomly sele
 
 ## 📦 Project Structure
 
-ani-game/
-├── public/ # Static assets (CSS, JS, images)
-├── views/
-│ ├── partials/ # Header/footer partials
-│ ├── game.ejs # Game UI view
-│ ├── description.ejs # Game intro description
-│ ├── info.ejs # Instructional info
-│ └── home.ejs # Main EJS layout
-├── .env # Environment variables (API keys)
-├── server.js # Express server & routing logic
-├── script.js # Client-side game logic
-└── README.md
+- `src/` - Core application code
+- `tests/` - Test suites
+- `docs/` - Project documentation
+- `public/` - Static assets
+- `.gitignore` - Git ignore rules
+- `package.json` - Project metadata and dependencies
 
 ---
 
