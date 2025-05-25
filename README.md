@@ -2,7 +2,7 @@
 
 Ani-Game is a web-based interactive game where players compare two randomly selected anime titles and vote for the one they think is more popular (based on the number of favorites). It’s a fun way to test your anime knowledge and discover new titles.
 
-![screenshot](https://github.com/Old-Boy-80/Ani-game/src/public/preview.png) 
+![screenshot](https://github.com/Old-Boy-80/Ani-game/blob/c2328379ee59628398687c34c00c70648b0305b9/src/public/preview.png) 
 
 ---
 
